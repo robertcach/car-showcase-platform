@@ -1,5 +1,5 @@
 export function useGetCars(brand: string) {
-  const url = `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=${brand}`;
+  const url = `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${brand}`;
   const options = {
     method: "GET",
     headers: {
