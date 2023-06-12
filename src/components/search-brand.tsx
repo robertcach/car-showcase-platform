@@ -14,7 +14,6 @@ export default function SearchBrand({
   selectedBrand,
   setSelectedBrand,
 }: SearchBrandProps) {
-  // const [selectedBrand, setSelectedBrand] = useState(CARS_BRANDS[0]);
   const [query, setQuery] = useState("");
 
   const cartBrands =
