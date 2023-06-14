@@ -1,5 +1,12 @@
-export function useGetCars(brand: string) {
-  const url = `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${brand}`;
+import { CARS_BRANDS } from "@/constants";
+import { Car, CarBrand } from "@/interfaces";
+import { useEffect, useState } from "react";
+
+export const useGetCars = (brand: string) => {
+  const [error, setError] = useState<boolean | null>(null);
+  const [carsBrands, setCarsBrands] = useState<Car[]>([]);
+
+  const url = `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${brand}&limit=20`;
   const options = {
     method: "GET",
     headers: {
@@ -8,5 +15,23 @@ export function useGetCars(brand: string) {
     },
   };
 
-  return fetch(url, options).then((res) => res.json());
-}
+  useEffect(() => {
+    const fetchCarsBrandsData = async () => {
+      try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+        setError(false);
+        setCarsBrands(data);
+      } catch (error) {
+        setError(true);
+        console.error("Error fetching Pokemon data:", error);
+      }
+    };
+
+    if (brand !== "") {
+      fetchCarsBrandsData();
+    }
+  }, [brand]);
+
+  return { cars: carsBrands, isLoading: !carsBrands.length && !error };
+};
