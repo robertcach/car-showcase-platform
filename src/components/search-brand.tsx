@@ -54,15 +54,15 @@ export default function SearchBrand({
                 Nothing found.
               </div>
             ) : (
-              cartBrands.map((person) => (
+              cartBrands.map((brand) => (
                 <Combobox.Option
-                  key={person.id}
+                  key={brand.id}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 pl-10 pr-4 ${
                       active ? "bg-teal-600 text-white" : "text-gray-900"
                     }`
                   }
-                  value={person}
+                  value={brand}
                 >
                   {({ selected, active }) => (
                     <>
@@ -71,7 +71,7 @@ export default function SearchBrand({
                           selected ? "font-medium" : "font-normal"
                         }`}
                       >
-                        {person.name}
+                        {brand.name}
                       </span>
                       {selected ? (
                         <span
