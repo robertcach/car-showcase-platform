@@ -11,7 +11,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [selectedBrand, setSelectedBrand] = useState<CarBrand>(CARS_BRANDS[0]);
-  const { cars, isLoading } = useGetCars(selectedBrand.name);
+  const { data: cars, loading, error } = useGetCars(selectedBrand.name);
 
   return (
     <main>
@@ -20,10 +20,14 @@ export default function Home() {
         selectedBrand={selectedBrand}
         setSelectedBrand={setSelectedBrand}
       />
-      {isLoading ? (
+      {loading ? (
         <div>
           <h1>Loading...</h1>
         </div>
+      ) : error ? (
+        "There is an error in request"
+      ) : !cars.length ? (
+        "There is no data"
       ) : (
         <div className="flex gap-10 py-10 bg-white">
           {cars?.map((car, index) => (
