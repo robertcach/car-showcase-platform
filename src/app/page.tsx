@@ -20,6 +20,7 @@ export default function Home() {
         selectedBrand={selectedBrand}
         setSelectedBrand={setSelectedBrand}
       />
+
       {loading ? (
         <div>
           <h1>Loading...</h1>
@@ -29,7 +30,7 @@ export default function Home() {
       ) : !cars.length ? (
         "There is no data"
       ) : (
-        <div className="flex gap-10 py-10 bg-white">
+        <div className="flex flex-wrap gap-12 px-4 mx-auto max-w-7xl ">
           {cars?.map((car, index) => (
             <CarCard car={car} key={index} />
           ))}
