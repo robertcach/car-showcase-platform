@@ -9,11 +9,11 @@ export default function SearchBar({
   setSelectedBrand,
 }: SearchBarProps) {
   return (
-    <form>
+    <div className="px-4 mx-auto mb-20 max-w-7xl">
       <SearchBrand
         selectedBrand={selectedBrand}
         setSelectedBrand={setSelectedBrand}
       />
-    </form>
+    </div>
   );
 }

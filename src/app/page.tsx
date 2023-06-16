@@ -20,22 +20,21 @@ export default function Home() {
         selectedBrand={selectedBrand}
         setSelectedBrand={setSelectedBrand}
       />
-
-      {loading ? (
-        <div>
+      <div className="flex flex-wrap gap-12 px-4 mx-auto max-w-7xl">
+        {loading ? (
           <h1>Loading...</h1>
-        </div>
-      ) : error ? (
-        "There is an error in request"
-      ) : !cars.length ? (
-        "There is no data"
-      ) : (
-        <div className="flex flex-wrap gap-12 px-4 mx-auto max-w-7xl ">
-          {cars?.map((car, index) => (
-            <CarCard car={car} key={index} />
-          ))}
-        </div>
-      )}
+        ) : error ? (
+          <p>There is an error in request</p>
+        ) : !cars.length ? (
+          <p>There is an error no data</p>
+        ) : (
+          <>
+            {cars?.map((car, index) => (
+              <CarCard car={car} key={index} />
+            ))}
+          </>
+        )}
+      </div>
     </main>
   );
 }

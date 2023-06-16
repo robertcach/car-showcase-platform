@@ -28,8 +28,8 @@ export default function SearchBrand({
   };
 
   return (
-    <div>
-      <Combobox value={selectedBrand} onChange={setSelectedBrand}>
+    <Combobox value={selectedBrand} onChange={setSelectedBrand}>
+      <div className="relative max-w-[200px] flex gap-3">
         <Combobox.Input
           placeholder="Volkswagen"
           displayValue={(brand: CarBrand) => brand.name}
@@ -41,55 +41,55 @@ export default function SearchBrand({
             aria-hidden="true"
           />
         </Combobox.Button>
-        <Transition
-          as={Fragment}
-          leave="transition ease-in duration-100"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-          afterLeave={() => setQuery("")}
-        >
-          <Combobox.Options>
-            {cartBrands.length === 0 && query !== "" ? (
-              <div className="relative px-4 py-2 text-gray-700 cursor-default select-none">
-                Nothing found.
-              </div>
-            ) : (
-              cartBrands.map((brand) => (
-                <Combobox.Option
-                  key={brand.id}
-                  className={({ active }) =>
-                    `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                      active ? "bg-teal-600 text-white" : "text-gray-900"
-                    }`
-                  }
-                  value={brand}
-                >
-                  {({ selected, active }) => (
-                    <>
+      </div>
+      <Transition
+        as={Fragment}
+        leave="transition ease-in duration-100"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+        afterLeave={() => setQuery("")}
+      >
+        <Combobox.Options className={"absolute bg-white w-[200px] mt-1"}>
+          {cartBrands.length === 0 && query !== "" ? (
+            <div className="relative px-4 py-2 text-gray-700 cursor-default select-none">
+              Nothing found.
+            </div>
+          ) : (
+            cartBrands.map((brand) => (
+              <Combobox.Option
+                key={brand.id}
+                className={({ active }) =>
+                  `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                    active ? "bg-teal-600 text-white" : "text-gray-900"
+                  }`
+                }
+                value={brand}
+              >
+                {({ selected, active }) => (
+                  <>
+                    <span
+                      className={`block truncate ${
+                        selected ? "font-medium" : "font-normal"
+                      }`}
+                    >
+                      {brand.name}
+                    </span>
+                    {selected ? (
                       <span
-                        className={`block truncate ${
-                          selected ? "font-medium" : "font-normal"
+                        className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                          active ? "text-white" : "text-teal-600"
                         }`}
                       >
-                        {brand.name}
+                        <CheckIcon className="w-5 h-5" aria-hidden="true" />
                       </span>
-                      {selected ? (
-                        <span
-                          className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
-                            active ? "text-white" : "text-teal-600"
-                          }`}
-                        >
-                          <CheckIcon className="w-5 h-5" aria-hidden="true" />
-                        </span>
-                      ) : null}
-                    </>
-                  )}
-                </Combobox.Option>
-              ))
-            )}
-          </Combobox.Options>
-        </Transition>
-      </Combobox>
-    </div>
+                    ) : null}
+                  </>
+                )}
+              </Combobox.Option>
+            ))
+          )}
+        </Combobox.Options>
+      </Transition>
+    </Combobox>
   );
 }
