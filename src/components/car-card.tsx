@@ -11,9 +11,9 @@ export default function CarCard({ car }: CarCardProps) {
       <Image
         src={"/hero.png"}
         alt="hero car"
-        width={500}
-        height={500}
-        className="w-auto h-auto"
+        width={200}
+        height={300}
+        className="h-auto"
       />
       <p>{car.model}</p>
     </div>
