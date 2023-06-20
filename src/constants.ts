@@ -1,4 +1,4 @@
-import { CarBrand } from "./interfaces";
+import { CarBrand, NavLink } from "./interfaces";
 
 export const CARS_BRANDS: CarBrand[] = [
   { id: 1, name: "Audi" },
@@ -11,4 +11,19 @@ export const CARS_BRANDS: CarBrand[] = [
   { id: 8, name: "Honda" },
   { id: 9, name: "Toyota" },
   { id: 10, name: "Volkswagen" },
+];
+
+export const NAV_LINKS: NavLink[] = [
+  {
+    id: "audi",
+    name: "Audi",
+  },
+  {
+    id: "bmw",
+    name: "BMW",
+  },
+  {
+    id: "ferrari",
+    name: "Ferrari",
+  },
 ];

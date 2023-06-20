@@ -17,3 +17,8 @@ export interface Car {
   transmission: string;
   year: number;
 }
+
+export interface NavLink {
+  id: string;
+  name: string;
+}
