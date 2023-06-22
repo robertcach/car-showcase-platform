@@ -8,7 +8,7 @@ export function useGetBrand(id: string) {
   };
 
   return fetch(
-    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${id}`,
+    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${id}&limit=20`,
     options
   ).then((res) => res.json());
 }
