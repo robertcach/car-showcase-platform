@@ -7,7 +7,11 @@ export default function Menu() {
       <ul className="flex gap-4">
         {NAV_LINKS.map((link) => (
           <li key={link.id}>
-            <Link href={`/brands/${link.id}`}>{link.name}</Link>
+            {link.id === "home" ? (
+              <Link href={"/"}>{link.name}</Link>
+            ) : (
+              <Link href={`/brands/${link.id}`}>{link.name}</Link>
+            )}
           </li>
         ))}
       </ul>

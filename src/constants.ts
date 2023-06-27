@@ -14,6 +14,7 @@ export const CARS_BRANDS: CarBrand[] = [
 ];
 
 export const NAV_LINKS: NavLink[] = [
+  { id: "home", name: "Home" },
   {
     id: "audi",
     name: "Audi",
