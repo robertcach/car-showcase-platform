@@ -25,7 +25,7 @@ export const useGetCars = (brand: string) => {
         setData(data);
       } catch (error) {
         setError(true);
-        console.error("Error fetching Pokemon data:", error);
+        console.error("Error fetching Cars data:", error);
       } finally {
         setLoading(false);
       }
