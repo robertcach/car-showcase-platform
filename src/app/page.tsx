@@ -26,7 +26,7 @@ export default function Home() {
         ) : error ? (
           <p>There is an error in request</p>
         ) : !cars.length ? (
-          <p>There is an error no data</p>
+          <p>There is no data</p>
         ) : (
           <>
             {cars?.map((car, index) => (
