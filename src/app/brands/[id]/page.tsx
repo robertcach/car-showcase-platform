@@ -2,6 +2,7 @@ import NotFoundComponent from "@/components/not-found-component";
 import { useGetBrand } from "@/hooks/getBrand";
 import { Car } from "@/interfaces";
 import Image from "next/image";
+import { Suspense } from "react";
 
 export default async function CarBrand({ params }: any) {
   const { id } = params;
@@ -12,17 +13,25 @@ export default async function CarBrand({ params }: any) {
   return (
     <div className="flex flex-wrap gap-20">
       {brandCars.map((car) => (
-        <article>
-          <Image
-            src={"/hero.png"}
-            alt="hero car"
-            width={200}
-            height={300}
-            className="h-auto"
-          />
-          <p>{car.model}</p>
-          <p>{car.year}</p>
-        </article>
+        <Suspense
+          fallback={
+            <p className="text-1xl">
+              Loading while get data from API request...
+            </p>
+          }
+        >
+          <article>
+            <Image
+              src={"https://picsum.photos/900/900"}
+              alt="hero car"
+              width={400}
+              height={400}
+              className="h-auto"
+            />
+            <p>{car.model}</p>
+            <p>{car.year}</p>
+          </article>
+        </Suspense>
       ))}
     </div>
   );
