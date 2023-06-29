@@ -12,14 +12,12 @@ export default async function CarBrand({ params }: any) {
 
   return (
     <div className="flex flex-wrap gap-20">
-      {brandCars.map((car) => (
-        <Suspense
-          fallback={
-            <p className="text-1xl">
-              Loading while get data from API request...
-            </p>
-          }
-        >
+      <Suspense
+        fallback={
+          <p className="text-1xl">Loading while get data from API request...</p>
+        }
+      >
+        {brandCars.map((car) => (
           <article>
             <Image
               src={"https://picsum.photos/900/900"}
@@ -31,8 +29,8 @@ export default async function CarBrand({ params }: any) {
             <p>{car.model}</p>
             <p>{car.year}</p>
           </article>
-        </Suspense>
-      ))}
+        ))}
+      </Suspense>
     </div>
   );
 }
