@@ -1,5 +1,5 @@
 import NotFoundComponent from "@/components/not-found-component";
-import { useGetBrand } from "@/hooks/getBrand";
+import { useGetBrand } from "@/hooks/usegetBrand";
 import { Car } from "@/interfaces";
 import Image from "next/image";
 import { Suspense } from "react";

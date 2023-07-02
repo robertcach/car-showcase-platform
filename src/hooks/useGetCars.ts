@@ -1,5 +1,4 @@
-import { CARS_BRANDS } from "@/constants";
-import { Car, CarBrand } from "@/interfaces";
+import { Car } from "@/interfaces";
 import { useEffect, useState } from "react";
 
 export const useGetCars = (brand: string) => {

@@ -1,4 +1,4 @@
-export default function useGetSingleCar(id: string, brand: string) {
+export function useGetSingleCar(id: string, brand: string) {
   const options = {
     method: "GET",
     headers: {
