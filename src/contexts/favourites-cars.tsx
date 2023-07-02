@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useCallback, useContext, useMemo, useState } from "react";
-import { Car } from "@/interfaces";
-
 const CARS: string = "cars";
 
 interface FavouritesCarsContextProps {
@@ -10,9 +8,9 @@ interface FavouritesCarsContextProps {
 }
 
 export interface FavouritesCarsContextValues {
-  favouritesCars: Car[];
-  setFavouritesCars: (values: Car[]) => void;
-  addFavouriteCar: (value: Car) => void;
+  favouritesCars: string[];
+  setFavouritesCars: (values: string[]) => void;
+  addFavouriteCar: (value: string) => void;
 }
 
 const FavouritesCarsContext = React.createContext(
@@ -23,7 +21,7 @@ export const useFavouritesCarsContext = () => useContext(FavouritesCarsContext);
 export const FavouritesCarsContextProvider = ({
   children,
 }: FavouritesCarsContextProps) => {
-  const [favouritesCars, setFavouritesCars] = useState<Car[]>(
+  const [favouritesCars, setFavouritesCars] = useState<string[]>(
     JSON.parse(localStorage.getItem(CARS) as string) || []
   );
 
@@ -33,14 +31,14 @@ export const FavouritesCarsContextProvider = ({
   );
 
   const addFavouriteCar = useCallback(
-    (car: Car) => {
-      if (favouritesCars.includes(car)) {
+    (carModel: string) => {
+      if (favouritesCars.includes(carModel)) {
         const filterCars = favouritesCars.filter(
-          (favouriteCar) => favouriteCar.model !== car.model
+          (favouriteCar) => favouriteCar !== carModel
         );
         setFavouritesCars(filterCars);
       } else {
-        setFavouritesCars([car, ...favouritesCars]);
+        setFavouritesCars([carModel, ...favouritesCars]);
       }
     },
     [favouritesCars]
