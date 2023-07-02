@@ -1,3 +1,6 @@
+"use client";
+
+import { useFavouritesCarsContext } from "@/contexts/favourites-cars";
 import { Car } from "@/interfaces";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,6 +10,8 @@ interface CarCardProps {
 }
 
 export default function CarCard({ car }: CarCardProps) {
+  const { addFavouriteCar, favouritesCars } = useFavouritesCarsContext();
+
   return (
     <div>
       <Link
@@ -22,6 +27,16 @@ export default function CarCard({ car }: CarCardProps) {
       </Link>
 
       <p>{car.model}</p>
+      <button
+        className={`p-2 rounded-xl ${
+          favouritesCars.includes(car.model)
+            ? "bg-red-500 text-black"
+            : "text-white bg-black"
+        }`}
+        onClick={() => addFavouriteCar(car.model)}
+      >
+        Favourite
+      </button>
     </div>
   );
 }
