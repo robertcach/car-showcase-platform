@@ -1,6 +1,6 @@
 "use client";
 
-import { useFavouritesCarsContext } from "@/contexts/favourites-cars";
+import { useFavouritesCarsContext } from "@/hooks/useFavouritesCarsContext";
 import { Car } from "@/interfaces";
 import Image from "next/image";
 import Link from "next/link";

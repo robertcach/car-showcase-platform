@@ -13,10 +13,9 @@ export interface FavouritesCarsContextValues {
   addFavouriteCar: (value: string) => void;
 }
 
-const FavouritesCarsContext = React.createContext(
+export const FavouritesCarsContext = React.createContext(
   {} as FavouritesCarsContextValues
 );
-export const useFavouritesCarsContext = () => useContext(FavouritesCarsContext);
 
 export const FavouritesCarsContextProvider = ({
   children,
