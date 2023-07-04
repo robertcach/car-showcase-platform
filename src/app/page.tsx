@@ -4,7 +4,7 @@ import CarCard from "@/components/car-card";
 import Hero from "@/components/hero";
 import SearchBar from "@/components/search-bar";
 import { CARS_BRANDS } from "@/constants";
-import { useGetCars } from "@/hooks/usegetCars";
+import { useGetCars } from "@/hooks/useGetCars";
 
 import { CarBrand } from "@/interfaces";
 import { useState } from "react";
