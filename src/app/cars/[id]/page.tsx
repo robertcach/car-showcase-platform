@@ -1,5 +1,5 @@
 "use client";
-import { useGetSingleCar } from "@/hooks/usegetSingleCar";
+import { useGetSingleCar } from "@/hooks/useGetSingleCar";
 import { Car } from "@/interfaces";
 import { useSearchParams } from "next/navigation";
 
